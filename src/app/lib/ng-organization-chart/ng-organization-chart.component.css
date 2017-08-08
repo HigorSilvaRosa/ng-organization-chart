@@ -25,54 +25,54 @@
 
     /*We will use ::before and ::after to draw the connectors*/
 
-    ng-organization-chart .tree ng-organization-chart-node::before, .tree ng-organization-chart-node::after{
+    ng-organization-chart .tree li::before, .tree li::after{
         content: '';
         position: absolute; top: 0; right: 50%;
         border-top: 1px solid #8dc63f;
         width: 50%; height: 20px;
     }
-    ng-organization-chart .tree ng-organization-chart-node::after{
+    ng-organization-chart .tree li::after{
         right: auto; left: 50%;
         border-left: 1px solid #8dc63f;
     }
 
     /*We need to remove left-right connectors from elements without 
     any siblings*/
-    ng-organization-chart .tree ng-organization-chart-node:only-child::after, .tree ng-organization-chart-node:only-child::before {
+    ng-organization-chart .tree li:only-child::after, .tree li:only-child::before {
         display: none;
     }
 
     /*Remove space from the top of single children*/
-    ng-organization-chart .tree ng-organization-chart-node:only-child{ padding-top: 0;}
+    ng-organization-chart .tree li:only-child{ padding-top: 0;}
 
     /*Remove left connector from first child and 
     right connector from last child*/
-    ng-organization-chart .tree ng-organization-chart-node:first-child::before, .tree ng-organization-chart-node:last-child::after{
+    ng-organization-chart .tree li:first-child::before, .tree li:last-child::after{
         border: 0 none;
     }
 
     /*Adding back the vertical connector to the last nodes*/
-    ng-organization-chart .tree ng-organization-chart-node:last-child::before{
+    ng-organization-chart .tree li:last-child::before{
         border-right: 1px solid #8dc63f;
         border-radius: 0 5px 0 0;
         -webkit-border-radius: 0 5px 0 0;
         -moz-border-radius: 0 5px 0 0;
     }
-    ng-organization-chart .tree ng-organization-chart-node:first-child::after{
+    ng-organization-chart .tree li:first-child::after{
         border-radius: 5px 0 0 0;
         -webkit-border-radius: 5px 0 0 0;
         -moz-border-radius: 5px 0 0 0;
     }
 
     /*Time to add downward connectors from parents*/
-    ng-organization-chart .tree ng-organization-chart-node ul ul::before{
+    ng-organization-chart .tree ul ul::before{
         content: '';
         position: absolute; top: 0; left: 50%;
         border-left: 1px solid #8dc63f;
         width: 0; height: 20px;
     }
 
-    ng-organization-chart .tree ng-organization-chart-node li a{
+    ng-organization-chart .tree li a{
         border: 1px solid #8dc63f;
         padding: 1em 0.75em;
         text-decoration: none;

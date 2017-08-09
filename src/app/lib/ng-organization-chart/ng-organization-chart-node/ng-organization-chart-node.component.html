@@ -1,5 +1,2 @@
-<li>
-  <a (click)="clickNode()">{{ node.id}}</a>
-  <ul #treeTarget [class]="childrenClass">
-  </ul>
-</li>
+<a (click)="clickNode()">{{ node.id}}</a>
+<ng-organization-chart-list [nodeList]="node.children"></ng-organization-chart-list>

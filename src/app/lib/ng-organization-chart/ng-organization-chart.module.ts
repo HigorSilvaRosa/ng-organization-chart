@@ -13,7 +13,9 @@ import { NgOrganizationChartListComponent } from './ng-organization-chart-list/n
     NgOrganizationChartNodeComponent,
     NgOrganizationChartListComponent
   ],
-  exports: [NgOrganizationChartComponent],
+  exports: [
+    NgOrganizationChartComponent
+  ],
   entryComponents: [
     NgOrganizationChartNodeComponent,
     NgOrganizationChartListComponent

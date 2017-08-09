@@ -1,168 +1,174 @@
+ng-organization-chart-list{
+	display: block;
+}
+ng-organization-chart-node{
+	display: block;
+}
+
 /* Code based on this sample http://thecodeplayer.com/walkthrough/css3-family-tree */
 
 /*Now the CSS*/
+ng-organization-chart * {margin: 0; padding: 0;}
 
-    ng-organization-chart .tree * {margin: 0; padding: 0;}
+ng-organization-chart ng-organization-chart-list {
+	padding-top: 20px; position: relative;
+	
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
 
-    ng-organization-chart .tree ul {
-        padding-top: 20px; position: relative;
-        
-        transition: all 0.5s;
-        -webkit-transition: all 0.5s;
-        -moz-transition: all 0.5s;
-    }
+ng-organization-chart ng-organization-chart-node {
+	float: left; text-align: center;
+	list-style-type: none;
+	position: relative;
+	padding: 20px 5px 0 5px;
+	
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
 
-    ng-organization-chart .tree li {
-        float: left; text-align: center;
-        list-style-type: none;
-        position: relative;
-        padding: 20px 5px 0 5px;
-        
-        transition: all 0.5s;
-        -webkit-transition: all 0.5s;
-        -moz-transition: all 0.5s;
-    }
+/*We will use ::before and ::after to draw the connectors*/
 
-    /*We will use ::before and ::after to draw the connectors*/
+ng-organization-chart ng-organization-chart-node::before, ng-organization-chart ng-organization-chart-node::after{
+	content: '';
+	position: absolute; top: 0; right: 50%;
+	border-top: 1px solid #8dc63f;
+	width: 50%; height: 20px;
+}
+ng-organization-chart ng-organization-chart-node::after{
+	right: auto; left: 50%;
+	border-left: 1px solid #8dc63f;
+}
 
-    ng-organization-chart .tree ng-organization-chart-node::before, .tree ng-organization-chart-node::after{
-        content: '';
-        position: absolute; top: 0; right: 50%;
-        border-top: 1px solid #8dc63f;
-        width: 50%; height: 20px;
-    }
-    ng-organization-chart .tree ng-organization-chart-node::after{
-        right: auto; left: 50%;
-        border-left: 1px solid #8dc63f;
-    }
+/*We need to remove left-right connectors from elements without 
+any siblings*/
+ng-organization-chart ng-organization-chart-node:only-child::after, ng-organization-chart ng-organization-chart-node:only-child::before {
+	display: none;
+}
 
-    /*We need to remove left-right connectors from elements without 
-    any siblings*/
-    ng-organization-chart .tree ng-organization-chart-node:only-child::after, .tree ng-organization-chart-node:only-child::before {
-        display: none;
-    }
+/*Remove space from the top of single children*/
+ng-organization-chart ng-organization-chart-node:only-child{ padding-top: 0;}
 
-    /*Remove space from the top of single children*/
-    ng-organization-chart .tree ng-organization-chart-node:only-child{ padding-top: 0;}
+/*Remove left connector from first child and 
+right connector from last child*/
+ng-organization-chart ng-organization-chart-node:first-child::before, ng-organization-chart ng-organization-chart-node:last-child::after{
+	border: 0 none;
+}
 
-    /*Remove left connector from first child and 
-    right connector from last child*/
-    ng-organization-chart .tree ng-organization-chart-node:first-child::before, .tree ng-organization-chart-node:last-child::after{
-        border: 0 none;
-    }
+/*Adding back the vertical connector to the last nodes*/
+ng-organization-chart ng-organization-chart-node:last-child::before{
+	border-right: 1px solid #8dc63f;
+	border-radius: 0 5px 0 0;
+	-webkit-border-radius: 0 5px 0 0;
+	-moz-border-radius: 0 5px 0 0;
+}
+ng-organization-chart ng-organization-chart-node:first-child::after{
+	border-radius: 5px 0 0 0;
+	-webkit-border-radius: 5px 0 0 0;
+	-moz-border-radius: 5px 0 0 0;
+}
 
-    /*Adding back the vertical connector to the last nodes*/
-    ng-organization-chart .tree ng-organization-chart-node:last-child::before{
-        border-right: 1px solid #8dc63f;
-        border-radius: 0 5px 0 0;
-        -webkit-border-radius: 0 5px 0 0;
-        -moz-border-radius: 0 5px 0 0;
-    }
-    ng-organization-chart .tree ng-organization-chart-node:first-child::after{
-        border-radius: 5px 0 0 0;
-        -webkit-border-radius: 5px 0 0 0;
-        -moz-border-radius: 5px 0 0 0;
-    }
+/*Time to add downward connectors from parents*/
+ng-organization-chart ng-organization-chart-list ng-organization-chart-list::before{
+	content: '';
+	position: absolute; top: 0; left: 50%;
+	border-left: 1px solid #8dc63f;
+	width: 0; height: 20px;
+}
 
-    /*Time to add downward connectors from parents*/
-    ng-organization-chart .tree ng-organization-chart-node ul ul::before{
-        content: '';
-        position: absolute; top: 0; left: 50%;
-        border-left: 1px solid #8dc63f;
-        width: 0; height: 20px;
-    }
+ng-organization-chart ng-organization-chart-node a{
+	border: 1px solid #8dc63f;
+	padding: 1em 0.75em;
+	text-decoration: none;
+	color: #666767;
+	font-family: arial, verdana, tahoma;
+	font-size: 0.85em;
+	display: inline-block;
+  
+  /*
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+  */
+	
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
 
-    ng-organization-chart .tree ng-organization-chart-node li a{
-        border: 1px solid #8dc63f;
-        padding: 1em 0.75em;
-        text-decoration: none;
-        color: #666767;
-        font-family: arial, verdana, tahoma;
-        font-size: 0.85em;
-        display: inline-block;
-    
-    /*
-        border-radius: 5px;
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-    */
-        
-        transition: all 0.5s;
-        -webkit-transition: all 0.5s;
-        -moz-transition: all 0.5s;
-    }
+/* -------------------------------- */
+/* Now starts the vertical elements */
+/* -------------------------------- */
 
-    /* -------------------------------- */
-    /* Now starts the vertical elements */
-    /* -------------------------------- */
+ng-organization-chart ng-organization-chart-list.vertical, ng-organization-chart-list.vertical ng-organization-chart-list {
+  padding-top: 0px;
+  left: 50%;
+}
 
-    ng-organization-chart .tree ul.vertical, ul.vertical ul {
-    padding-top: 0px;
-    left: 50%;
-    }
+/* Remove the downward connectors from parents */
+ng-organization-chart ng-organization-chart-list ng-organization-chart-list.vertical::before {
+	display: none;
+}
 
-    /* Remove the downward connectors from parents */
-    ng-organization-chart .tree ul ul.vertical::before {
-        display: none;
-    }
+ng-organization-chart ng-organization-chart-list.vertical ng-organization-chart-node {
+	float: none;
+  text-align: left;
+}
 
-    ng-organization-chart .tree ul.vertical li {
-        float: none;
-    text-align: left;
-    }
+ng-organization-chart ng-organization-chart-list.vertical ng-organization-chart-node::before {
+  right: auto;
+  border: none;
+}
 
-    ng-organization-chart .tree ul.vertical li::before {
-    right: auto;
-    border: none;
-    }
+ng-organization-chart ng-organization-chart-list.vertical ng-organization-chart-node::after{
+	display: none;
+}
 
-    ng-organization-chart .tree ul.vertical li::after{
-        display: none;
-    }
+ng-organization-chart ng-organization-chart-list.vertical ng-organization-chart-node a{
+	padding: 10px 0.75em;
+  margin-left: 16px;
+}
 
-    ng-organization-chart .tree ul.vertical li a{
-        padding: 10px 0.75em;
-    margin-left: 16px;
-    }
+ng-organization-chart ng-organization-chart-list.vertical ng-organization-chart-node::before {
+  top: -20px;
+  left: 0px;
+	border-bottom: 1px solid #8dc63f;
+	border-left: 1px solid #8dc63f;
+	width: 20px; height: 60px;
+}
 
-    ng-organization-chart .tree ul.vertical li::before {
-    top: -20px;
-    left: 0px;
-        border-bottom: 1px solid #8dc63f;
-        border-left: 1px solid #8dc63f;
-        width: 20px; height: 60px;
-    }
+ng-organization-chart ng-organization-chart-list.vertical ng-organization-chart-node:first-child::before {
+  top: 0px;
+  height: 40px;
+}
 
-    ng-organization-chart .tree ul.vertical li:first-child::before {
-    top: 0px;
-    height: 40px;
-    }
+/* Lets add some extra styles */
 
-    /* Lets add some extra styles */
+divng-organization-chart > ng-organization-chart-list > ng-organization-chart-node > ng-organization-chart-list > ng-organization-chart-node > a {
+  width: 11em;
+}
 
-    ng-organization-chart div.tree > ul > li > ul > li > a {
-    width: 11em;
-    }
-
-    ng-organization-chart div.tree > ul > li > a {
-    font-size: 1em;
-    font-weight: bold;
-    }
+divng-organization-chart > ng-organization-chart-list > ng-organization-chart-node > a {
+  font-size: 1em;
+  font-weight: bold;
+}
 
 
-    /* ------------------------------------------------------------------ */
-    /* Time for some hover effects                                        */
-    /* We will apply the hover effect the the lineage of the element also */
-    /* ------------------------------------------------------------------ */
-    ng-organization-chart .tree li a:hover, .tree li a:hover+ul li a {
-        background: #8dc63f;
-    color: white;
-    /* border: 1px solid #aaa; */
-    }
-    /*Connector styles on hover*/
-    ng-organization-chart .tree li a:hover+ul li::after, 
-    ng-organization-chart .tree li a:hover+ul li::before, 
-    ng-organization-chart .tree li a:hover+ul::before, 
-    ng-organization-chart .tree li a:hover+ul ul::before{
-        border-color:  #aaa;
-    }
+/* ------------------------------------------------------------------ */
+/* Time for some hover effects                                        */
+/* We will apply the hover effect the the ng-organization-chart-nodeneage of the element also */
+/* ------------------------------------------------------------------ */
+ng-organization-chart ng-organization-chart-node a:hover, ng-organization-chart ng-organization-chart-node a:hover+ng-organization-chart-list ng-organization-chart-node a {
+	background: #8dc63f;
+  color: white;
+  /* border: 1px solid #aaa; */
+}
+/*Connector styles on hover*/
+ng-organization-chart ng-organization-chart-node a:hover+ng-organization-chart-list ng-organization-chart-node::after, 
+ng-organization-chart ng-organization-chart-node a:hover+ng-organization-chart-list ng-organization-chart-node::before, 
+ng-organization-chart ng-organization-chart-node a:hover+ng-organization-chart-list::before, 
+ng-organization-chart ng-organization-chart-node a:hover+ng-organization-chart-list ng-organization-chart-list::before{
+	border-color:  #aaa;
+}

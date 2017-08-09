@@ -18,7 +18,7 @@ export class NgOrganizationChartNodeComponent implements OnInit {
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 
   ngOnInit() {
-    for (let i in this.node.children) {
+    /*for (let i in this.node.children) {
       let node: NgOrganizationChartNodeModel = this.node.children[i];
       let nodeComponent = this.componentFactoryResolver.resolveComponentFactory(NgOrganizationChartNodeComponent);
       let nodeComponentRef = this.treeTarget.createComponent(nodeComponent);
@@ -26,7 +26,7 @@ export class NgOrganizationChartNodeComponent implements OnInit {
       nodeComponentRef.instance.onClickNode.subscribe(clickedNode => {
         this.onClickNode.emit(clickedNode)
       })
-    }
+    }*/
   }
 
   changeChildrenDisplay() {

@@ -1,11 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { NgOrganizationChartNodeModel } from './../ng-organization-chart-node-model';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-ng-organization-chart-list',
+  selector: 'ng-organization-chart-list',
   templateUrl: './ng-organization-chart-list.component.html',
   styleUrls: ['./ng-organization-chart-list.component.css']
 })
 export class NgOrganizationChartListComponent implements OnInit {
+
+  @Input() nodeList: Array<NgOrganizationChartNodeModel> =[];
 
   constructor() { }
 

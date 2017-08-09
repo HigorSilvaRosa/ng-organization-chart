@@ -1,2 +1,2 @@
 <a (click)="clickNode()">{{ node.id}}</a>
-<ng-organization-chart-list [nodeList]="node.children"></ng-organization-chart-list>
+<ng-organization-chart-list [nodeList]="node.children" (onClickNode)="onClickDeepNode($event)"></ng-organization-chart-list>

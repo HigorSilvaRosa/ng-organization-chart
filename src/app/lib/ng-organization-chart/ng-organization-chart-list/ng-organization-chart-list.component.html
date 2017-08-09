@@ -1,1 +1,1 @@
-<ng-organization-chart-node *ngFor="let node of nodeList" [node]="node"></ng-organization-chart-node>
+<ng-organization-chart-node *ngFor="let node of nodeList" [node]="node" (onClickNode)="onClickDeepNode($event)"></ng-organization-chart-node>

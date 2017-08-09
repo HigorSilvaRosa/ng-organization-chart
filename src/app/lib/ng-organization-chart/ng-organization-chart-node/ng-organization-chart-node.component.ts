@@ -9,36 +9,20 @@ import { Component, OnInit, Input, ComponentFactoryResolver, ViewContainerRef, V
 export class NgOrganizationChartNodeComponent implements OnInit {
 
   @Input() node: NgOrganizationChartNodeModel
-  @ViewChild("treeTarget", { read: ViewContainerRef }) private treeTarget;
-
   @Output() onClickNode: EventEmitter<NgOrganizationChartNodeModel> = new EventEmitter()
 
-  private childrenClass: string = ""
+  private childrenStyleClass: string = "horizontal"
 
-  constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
+  constructor() { }
 
-  ngOnInit() {
-    /*for (let i in this.node.children) {
-      let node: NgOrganizationChartNodeModel = this.node.children[i];
-      let nodeComponent = this.componentFactoryResolver.resolveComponentFactory(NgOrganizationChartNodeComponent);
-      let nodeComponentRef = this.treeTarget.createComponent(nodeComponent);
-      nodeComponentRef.instance.node = node;
-      nodeComponentRef.instance.onClickNode.subscribe(clickedNode => {
-        this.onClickNode.emit(clickedNode)
-      })
-    }*/
-  }
-
-  changeChildrenDisplay() {
-    if (this.childrenClass == "") {
-      this.childrenClass = "vertical";
-    } else {
-      this.childrenClass = "";
-    }
-  }
+  ngOnInit() {}
 
   clickNode() {
     this.onClickNode.emit(this.node);
+  }
+
+  onClickDeepNode(node) {
+    this.onClickNode.emit(node);
   }
 
 }

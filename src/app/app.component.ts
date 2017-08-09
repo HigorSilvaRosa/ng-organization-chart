@@ -100,6 +100,6 @@ export class AppComponent {
   ]
 
   clickNode(node) {
-    console.log(node);
+    alert("Node '"+node.id+"' was clicked!")
   }
 }

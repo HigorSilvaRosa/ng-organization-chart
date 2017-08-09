@@ -10,13 +10,14 @@ export class NgOrganizationChartNodeComponent implements OnInit {
 
   @Input() node: NgOrganizationChartNodeModel
   @Output() onClickNode: EventEmitter<NgOrganizationChartNodeModel> = new EventEmitter()
+  @Output() onDragNode: EventEmitter<any> = new EventEmitter()
 
   private childrenStyleClass: string = "horizontal"
   private isChildrenVisible: boolean = true;
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   clickNode() {
     this.onClickNode.emit(this.node);
@@ -26,20 +27,31 @@ export class NgOrganizationChartNodeComponent implements OnInit {
     this.onClickNode.emit(node);
   }
 
-  changeChildrenStyleToVertical(){
+  changeChildrenStyleToVertical() {
     this.childrenStyleClass = "vertical"
   }
 
-  changeChildrenStyleToHorizontal(){
+  changeChildrenStyleToHorizontal() {
     this.childrenStyleClass = "horizontal"
   }
 
-  hideChildren(){
+  hideChildren() {
     this.isChildrenVisible = false;
   }
 
-  showChildren(){
+  showChildren() {
     this.isChildrenVisible = true;
   }
 
+  dropNode(event) {
+    let transfer = {
+      node: event.dragData,
+      destination: this.node
+    }
+    this.onDragNode.emit(transfer)
+  }
+
+  onDragDeepNode(transfer) {
+    this.onDragNode.emit(transfer)
+  }
 }

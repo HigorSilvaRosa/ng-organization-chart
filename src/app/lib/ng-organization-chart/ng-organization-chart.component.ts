@@ -11,6 +11,7 @@ export class NgOrganizationChartComponent implements OnInit {
 
   @Input() data: Array<NgOrganizationChartNodeModel> = [];
   @Output() onClickNode: EventEmitter<NgOrganizationChartNodeModel> = new EventEmitter()
+  @Output() onDragNode: EventEmitter<any> = new EventEmitter()
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 
@@ -18,6 +19,10 @@ export class NgOrganizationChartComponent implements OnInit {
 
   onClickDeepNode(node) {
     this.onClickNode.emit(node);
+  }
+
+  onDragDeepNode(transfer) {
+    this.onDragNode.emit(transfer)
   }
 
 }

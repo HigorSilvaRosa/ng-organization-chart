@@ -176,15 +176,15 @@ divng-organization-chart > ng-organization-chart-list > ng-organization-chart-no
 /* Time for some hover effects                                        */
 /* We will apply the hover effect the the ng-organization-chart-nodeneage of the element also */
 /* ------------------------------------------------------------------ */
-ng-organization-chart ng-organization-chart-node a:hover, ng-organization-chart ng-organization-chart-node a:hover+ng-organization-chart-list ng-organization-chart-node a {
+ng-organization-chart ng-organization-chart-node a:hover, ng-organization-chart ng-organization-chart-node a:hover + ng-organization-chart-list ng-organization-chart-node a {
 	background: #8dc63f;
   color: white;
   /* border: 1px solid #aaa; */
 }
 /*Connector styles on hover*/
-ng-organization-chart ng-organization-chart-node a:hover+ng-organization-chart-list ng-organization-chart-node::after, 
-ng-organization-chart ng-organization-chart-node a:hover+ng-organization-chart-list ng-organization-chart-node::before, 
-ng-organization-chart ng-organization-chart-node a:hover+ng-organization-chart-list::before, 
-ng-organization-chart ng-organization-chart-node a:hover+ng-organization-chart-list ng-organization-chart-list::before{
+ng-organization-chart ng-organization-chart-node a:hover + ng-organization-chart-list ng-organization-chart-node::after, 
+ng-organization-chart ng-organization-chart-node a:hover + ng-organization-chart-list ng-organization-chart-node::before, 
+ng-organization-chart ng-organization-chart-node a:hover + ng-organization-chart-list::before, 
+ng-organization-chart ng-organization-chart-node a:hover + ng-organization-chart-list ng-organization-chart-list::before{
 	border-color:  #aaa;
 }

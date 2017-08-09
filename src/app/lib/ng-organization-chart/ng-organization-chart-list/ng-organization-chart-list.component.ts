@@ -9,7 +9,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class NgOrganizationChartListComponent implements OnInit {
 
   @Input() nodeList: Array<NgOrganizationChartNodeModel> =[];
-  @Output() onClickNode: EventEmitter<NgOrganizationChartNodeModel> = new EventEmitter()
+  @Output() onClickNode: EventEmitter<NgOrganizationChartNodeModel> = new EventEmitter();
+  @Output() onDragNode: EventEmitter<any> = new EventEmitter()
 
   constructor() { }
 
@@ -18,6 +19,10 @@ export class NgOrganizationChartListComponent implements OnInit {
 
   onClickDeepNode(node) {
     this.onClickNode.emit(node);
+  }
+
+  onDragDeepNode(transfer) {
+    this.onDragNode.emit(transfer)
   }
 
 }

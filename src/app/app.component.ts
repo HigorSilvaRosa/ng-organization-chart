@@ -1,3 +1,4 @@
+import { NgOrganizationChartHelper } from './lib/ng-organization-chart/ng-organization-chart-helper';
 import { Component } from '@angular/core';
 
 @Component({
@@ -20,27 +21,19 @@ export class AppComponent {
               children: [
                 {
                   id: "Angular",
-                  children: [
-
-                  ]
+                  children: []
                 },
                 {
                   id: "CSS",
-                  children: [
-
-                  ]
+                  children: []
                 },
                 {
                   id: "HTML",
-                  children: [
-
-                  ]
+                  children: []
                 },
                 {
                   id: "Piadas sem graça",
-                  children: [
-
-                  ]
+                  children: []
                 },
               ]
             },
@@ -49,13 +42,11 @@ export class AppComponent {
               children: [
                 {
                   id: "PHP",
-                  children: [
-                  ]
+                  children: []
                 },
                 {
                   id: "Amazon AWS",
-                  children: [
-                  ]
+                  children: []
                 },
 
               ]
@@ -65,18 +56,14 @@ export class AppComponent {
               children: [
                 {
                   id: "Litrão",
-                  children: [
-
-                  ]
+                  children: []
                 },
                 {
                   id: "Balada",
                   children: [
                     {
                       id: "Terraço Club",
-                      children: [
-
-                      ]
+                      children: []
                     },
                   ]
                 },
@@ -85,9 +72,7 @@ export class AppComponent {
                   children: [
                     {
                       id: "Risca faca",
-                      children: [
-
-                      ]
+                      children: []
                     },
                   ]
                 }
@@ -100,6 +85,13 @@ export class AppComponent {
   ]
 
   clickNode(node) {
-    alert("Node '"+node.id+"' was clicked!")
+    alert("Node '" + node.id + "' was clicked!")
+  }
+
+  dragNode(transfer) {
+    let helper = new NgOrganizationChartHelper(this.data);
+    helper.moveNode(transfer.node.id, transfer.destination.id);
+    let data = helper.getData();
+    this.data = data
   }
 }

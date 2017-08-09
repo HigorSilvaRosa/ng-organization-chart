@@ -1,2 +1,8 @@
 <a (click)="clickNode()">{{ node.id}}</a>
-<ng-organization-chart-list [nodeList]="node.children" (onClickNode)="onClickDeepNode($event)"></ng-organization-chart-list>
+<div class="expand-button-container" *ngIf="node.children.length > 0">
+    <div class="expand-button" (click)="hideChildren()" *ngIf="isChildrenVisible">-</div>
+    <div class="expand-button" (click)="showChildren()" *ngIf="!isChildrenVisible">+</div>
+    <div class="expand-button" (click)="changeChildrenStyleToHorizontal()" *ngIf="childrenStyleClass == 'vertical'">V</div>
+    <div class="expand-button" (click)="changeChildrenStyleToVertical()" *ngIf="childrenStyleClass != 'vertical'">H</div>
+</div>
+<ng-organization-chart-list [nodeList]="node.children" (onClickNode)="onClickDeepNode($event)" *ngIf="isChildrenVisible && node.children.length > 0" [class]="childrenStyleClass"></ng-organization-chart-list>

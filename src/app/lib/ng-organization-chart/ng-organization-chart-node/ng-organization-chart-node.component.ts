@@ -12,6 +12,7 @@ export class NgOrganizationChartNodeComponent implements OnInit {
   @Output() onClickNode: EventEmitter<NgOrganizationChartNodeModel> = new EventEmitter()
 
   private childrenStyleClass: string = "horizontal"
+  private isChildrenVisible: boolean = true;
 
   constructor() { }
 
@@ -23,6 +24,22 @@ export class NgOrganizationChartNodeComponent implements OnInit {
 
   onClickDeepNode(node) {
     this.onClickNode.emit(node);
+  }
+
+  changeChildrenStyleToVertical(){
+    this.childrenStyleClass = "vertical"
+  }
+
+  changeChildrenStyleToHorizontal(){
+    this.childrenStyleClass = "horizontal"
+  }
+
+  hideChildren(){
+    this.isChildrenVisible = false;
+  }
+
+  showChildren(){
+    this.isChildrenVisible = true;
   }
 
 }

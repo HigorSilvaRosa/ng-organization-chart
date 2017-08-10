@@ -1,4 +1,4 @@
-import { NgOrganizationChartModule } from './ng-organization-chart/ng-organization-chart.module';
+import { NgOrganizationChartModule } from './../ng-organization-chart/ng-organization-chart.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 

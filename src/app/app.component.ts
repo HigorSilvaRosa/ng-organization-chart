@@ -1,4 +1,4 @@
-import { NgOrganizationChartHelper } from './ng-organization-chart/ng-organization-chart-helper';
+import { NgOrganizationChartHelper } from './../ng-organization-chart/ng-organization-chart-helper';
 import { Component } from '@angular/core';
 
 @Component({

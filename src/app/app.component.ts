@@ -1,4 +1,4 @@
-import { NgOrganizationChartHelper } from './lib/ng-organization-chart/ng-organization-chart-helper';
+import { NgOrganizationChartHelper } from './ng-organization-chart/ng-organization-chart-helper';
 import { Component } from '@angular/core';
 
 @Component({
@@ -94,4 +94,5 @@ export class AppComponent {
     let data = helper.getData();
     this.data = data
   }
+  
 }

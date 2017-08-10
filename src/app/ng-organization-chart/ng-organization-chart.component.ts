@@ -10,6 +10,7 @@ import { Component, OnInit, Input, ViewChild, ViewContainerRef, ComponentFactory
 export class NgOrganizationChartComponent implements OnInit {
 
   @Input() data: Array<NgOrganizationChartNodeModel> = [];
+  @Input() remoteData: boolean = false;
   @Output() onClickNode: EventEmitter<NgOrganizationChartNodeModel> = new EventEmitter()
   @Output() onDragNode: EventEmitter<any> = new EventEmitter()
 

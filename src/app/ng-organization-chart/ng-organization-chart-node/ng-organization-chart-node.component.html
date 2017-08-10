@@ -1,12 +1,10 @@
 <!-- <a (click)="clickNode()" dnd-draggable [dragEnabled]="true" dnd-droppable (onDropSuccess)="dropNode($event)" [dragData]="node">{{ node.id}}</a> -->
-<a (click)="clickNode()" draggable droppable [dragData]="node" (onDrop)="dropNode($event)">{{ node.id}}</a>
+<div class="container" (click)="clickNode()" draggable droppable [dragData]="node" (onDrop)="dropNode($event)">{{ node.id}}</div>
 <div class="expand-button-container" *ngIf="node.children.length > 0">
-    <div class="expand-button" (click)="hideChildren()" *ngIf="isChildrenVisible">-</div>
-    <div class="expand-button" (click)="showChildren()" *ngIf="!isChildrenVisible">+</div>
     <!--
     <div class="expand-button" (click)="changeChildrenStyleToHorizontal()" *ngIf="childrenStyleClass == 'vertical'">V</div>
     <div class="expand-button" (click)="changeChildrenStyleToVertical()" *ngIf="childrenStyleClass != 'vertical'">H</div>
     -->
 </div>
-<ng-organization-chart-list [nodeList]="node.children" (onClickNode)="onClickDeepNode($event)" (onDragNode)="onDragDeepNode($event)" *ngIf="isChildrenVisible && node.children.length > 0"
+<ng-organization-chart-list [ngClass]="'ng-organization-chart-list'" [nodeList]="node.children" (onClickNode)="onClickDeepNode($event)" (onDragNode)="onDragDeepNode($event)" *ngIf="isChildrenVisible && node.children.length > 0"
     [class]="childrenStyleClass"></ng-organization-chart-list>

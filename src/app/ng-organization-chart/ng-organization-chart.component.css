@@ -1,0 +1,18 @@
+ ng-organization-chart-list {
+	position: relative;
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	display: block;
+}
+
+/*Time to add downward connectors from parents*/
+ ng-organization-chart-list::before{
+	content: '';
+	position: absolute; top: 0; left: 50%;
+	border-left: 1px solid #ccc;
+	width: 0px;
+}
+
+/*Thats all. I hope you enjoyed it.
+Thanks :)*/

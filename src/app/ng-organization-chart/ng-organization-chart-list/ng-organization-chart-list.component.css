@@ -1,0 +1,58 @@
+ng-organization-chart-node {
+	float: left; text-align: center;
+	list-style-type: none;
+	position: relative;
+	padding: 20px 5px 0 5px;
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+
+ng-organization-chart-node:only-child {
+
+	padding-top: 0px;
+}
+
+/*We will use ::before and ::after to draw the connectors*/
+
+ ng-organization-chart-node::before,  ng-organization-chart-node::after{
+	content: '';
+	position: absolute; top: 0; right: 50%;
+	border-top: 1px solid #ccc;
+	width: 50%; height: 20px;
+}
+ ng-organization-chart-node::after{
+	right: auto; left: 50%;
+	border-left: 1px solid #ccc;
+}
+
+/*We need to remove left-right connectors from elements without 
+any siblings*/
+ ng-organization-chart-node:only-child::after,  ng-organization-chart-node:only-child::before {
+	display: none;
+}
+
+/*Remove left connector from first child and 
+right connector from last child*/
+ ng-organization-chart-node:first-child::before,  ng-organization-chart-node:last-child::after{
+	border: 0 none;
+}
+/*Adding back the vertical connector to the last nodes*/
+ ng-organization-chart-node:last-child::before{
+	border-right: 1px solid #ccc;
+	border-radius: 0 5px 0 0;
+	-webkit-border-radius: 0 5px 0 0;
+	-moz-border-radius: 0 5px 0 0;
+}
+ ng-organization-chart-node:first-child::after{
+	border-radius: 5px 0 0 0;
+	-webkit-border-radius: 5px 0 0 0;
+	-moz-border-radius: 5px 0 0 0;
+}
+
+ng-organization-chart-list::before{
+	content: '';
+	position: absolute; top: 0; left: 50%;
+	border-left: 1px solid #ccc;
+	width: 0; height: 20px;
+}

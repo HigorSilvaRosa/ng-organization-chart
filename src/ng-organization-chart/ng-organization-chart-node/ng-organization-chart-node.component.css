@@ -14,7 +14,7 @@
 	width: 0; height: 20px;
 }
 
-.container{
+.ng-organization-chart-container{
 	border: 1px solid #ccc;
 	padding: 5px 10px;
 	text-decoration: none;
@@ -22,11 +22,11 @@
 	font-family: arial, verdana, tahoma;
 	font-size: 11px;
 	display: inline-block;
-	
+
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
-	
+
 	transition: all 0.5s;
 	-webkit-transition: all 0.5s;
 	-moz-transition: all 0.5s;

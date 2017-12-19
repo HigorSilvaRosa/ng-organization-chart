@@ -1,5 +1,5 @@
 <!-- <a (click)="clickNode()" dnd-draggable [dragEnabled]="true" dnd-droppable (onDropSuccess)="dropNode($event)" [dragData]="node">{{ node.id}}</a> -->
-<div class="container" (click)="clickNode()" draggable droppable [dragData]="node" (onDrop)="dropNode($event)">{{ node.id}}</div>
+<div class="ng-organization-chart-container" (click)="clickNode()" draggable droppable [dragData]="node" (onDrop)="dropNode($event)">{{ node.id}}</div>
 <div class="expand-button-container" *ngIf="node.children.length > 0">
     <!--
     <div class="expand-button" (click)="changeChildrenStyleToHorizontal()" *ngIf="childrenStyleClass == 'vertical'">V</div>

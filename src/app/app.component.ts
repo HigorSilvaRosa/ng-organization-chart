@@ -12,6 +12,8 @@ export class AppComponent {
   data = [
     {
       id: "Neo",
+      name:"mona",
+      title:"name"
       children: [
         {
           id: "Diogo",
